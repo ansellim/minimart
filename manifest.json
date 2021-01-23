@@ -3,8 +3,8 @@
   "theme_color": "#f69435",
   "background_color": "#f69435",
   "display": "standalone",
-  "scope": "/",
-  "start_url": "/",
+  "scope": "/minimart/",
+  "start_url": "/minimart/",
   "app_name": "Ansel's Minimart",
   "short_name": "Ansel Mart",
   "icons": [
