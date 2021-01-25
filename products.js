@@ -5,9 +5,7 @@ $(document).ready(function () {
     // console.log(ourRequest.responseText);
     var ourData = JSON.parse(ourRequest.responseText);
 
-    for (i = 0; (i = ourData.length); i++) {
-      console.log("Item no. " + String(i + 1) + ": " + ourData[i].name);
-    }
+    console.log("product: " + ourData[0].name);
   };
   ourRequest.send();
 });
