@@ -4,7 +4,10 @@ $(document).ready(function () {
   ourRequest.onload = function () {
     // console.log(ourRequest.responseText);
     var ourData = JSON.parse(ourRequest.responseText);
-    console.log("First product: " + ourData[0].name);
+
+    for (i = 0; (i = ourData.length); i++) {
+      console.log("Item no. " + String(i + 1) + ": " + ourData[i].name);
+    }
   };
   ourRequest.send();
 });
