@@ -1,34 +1,32 @@
 [
   {
     "name": "Ansel's House Brand Olive Oil 2 liters",
-    "price": "$18.40"
+    "price": "$18.40",
+    "photo": "oliveoil.jpg"
   },
   {
     "name": "SongHe AAA Thai Rice 5kg",
-    "price": "$14.60"
+    "price": "$14.60",
+    "photo": "thairice.jpg"
   },
   {
     "name": "Ansel's Abalone Noodle 250g",
-    "price": "$9.80"
+    "price": "$9.80",
+    "photo": "abalonenoodle.jpg"
   },
   {
     "name": "Fantastic Truffle Sauce 100g",
-    "price": "$25.00"
+    "price": "$25.00",
+    "photo": "trufflesauce.jpg"
   },
   {
     "name": "Ansel's Vegetable Oil 2 liters",
-    "price": "$10.50"
+    "price": "$10.50",
+    "photo": "vegetableoil.png"
   },
   {
     "name": "Ansel's 100% Natural Tomato Ketchup 350g",
-    "price": "$2.50"
-  },
-  {
-    "name": "Ansel's Penne Pasta 500g",
-    "price": "$3.50"
-  },
-  {
-    "name": "Campbell's Condensed Soup (Cream of Chicken) 300g",
-    "price": "$1.70"
+    "price": "$2.50",
+    "photo": "tomatoketchup.jpg"
   }
 ]
