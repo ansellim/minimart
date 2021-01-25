@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Directions</title>
 
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsOu2g25QpezRc_3DjQpRBHtq85bn3yik&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -15,6 +20,14 @@
 
     <link rel="apple-touch-icon" href="icon-192x192.png" />
     <meta name="theme-color" content="#f69435" />
+
+    <style type="text/css">
+      #map {
+        min-height: 400px;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
 
     <script>
       if ("serviceWorker" in navigator) {
@@ -49,14 +62,131 @@
     </nav>
 
     <div class="container">
-      <h1>How to get here.</h1>
-      <h2>Let me show you how to get here!</h2>
+      <h1>How to get here!</h1>
     </div>
 
     <div class="container">
-      <p>Our location is at 500 Dover Road, Singapore 139651.</p>
+      <h2>Address</h2>
+      <p>
+        We are located in T21 building at Singapore Polytechnic. Our address is:
+        500 Dover Road, Singapore 139651.
+      </p>
     </div>
 
-    <div id="map"></div>
+    <div class="container">
+      <h2>Let me show you how to get here!</h2>
+      <button id="btn">Click here to get directions</button>
+    </div>
+
+    <input hidden id="pos_lat" value="" />
+    <input hidden id="pos_lng" value="" />
+
+    <script>
+      let map;
+      const myLatLng = { lat: 1.3115957122081283, lng: 103.77520417009457 };
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: myLatLng,
+          zoom: 16,
+        });
+
+        new google.maps.Marker({
+          position: myLatLng,
+          map,
+          title: "Ansel's Minimart",
+        });
+
+        // infoWindow = new google.maps.InfoWindow();
+
+        /*
+        var myLat, myLng;
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+          console.log(position);
+          //myLat = position.coords.latitude;
+          //myLng = position.coords.longitude;
+          //console.log(myLat);
+          //console.log(myLng);
+          //console.log(5);
+        });
+
+        console.log(myLat);]
+        */
+
+        var myLat;
+        //alert(myLat); // this alerts null
+        navigator.geolocation.getCurrentPosition(callback, fail, {
+          timeout: 10000,
+        });
+        function callback(position) {
+          jQuery("#pos_lat").val(position.coords.latitude);
+          localStorage.setItem("pos_lat", position.coords.latitude);
+        }
+        function fail() {
+          console.log(0);
+        }
+
+        //https://stackoverflow.com/questions/9935059/saving-variables-outside-of-navigator-geolocation-getcurrentposition-javascrip
+
+        var myLng;
+        //alert(myLng); // this alerts null
+        navigator.geolocation.getCurrentPosition(callbackLong, fail, {
+          timeout: 10000,
+        });
+        function callbackLong(position) {
+          jQuery("#pos_lng").val(position.coords.latitude);
+        }
+
+        console.log(jQuery("#pos_lat").val());
+        console.log(jQuery("#pos_lng").val());
+
+        const directionsService = new google.maps.DirectionsService();
+        const directionsRenderer = new google.maps.DirectionsRenderer();
+        directionsRenderer.setMap(map);
+
+        const onChangeHandler = function () {
+          calculateAndDisplayRoute(directionsService, directionsRenderer);
+        };
+
+        document
+          .getElementById("btn")
+          .addEventListener("click", onChangeHandler);
+
+        function calculateAndDisplayRoute(
+          directionsService,
+          directionsRenderer
+        ) {
+          directionsService.route(
+            {
+              origin: {
+                query: google.maps.LatLng(myLat, myLng),
+              },
+              destination: {
+                query: "500 Dover Road, Singapore 139651",
+              },
+              travelMode: google.maps.TravelMode.TRANSIT,
+            },
+            (response, status) => {
+              if (status === "OK") {
+                directionsRenderer.setDirections(response);
+              } else {
+                window.alert("Directions request failed due to " + status);
+              }
+            }
+          );
+        }
+      }
+      // document.getElementById("btn").addEventListener("click", getDirections());
+    </script>
+
+    <div class="container"><br /></div>
+    <div class="container"><div id="map"></div></div>
+
+    <div class="container">
+      <h2>Opening hours</h2>
+      <p>Monday-Friday 8am-5pm</p>
+      <p>Weekends 8am-12nn</p>
+    </div>
   </body>
 </html>
