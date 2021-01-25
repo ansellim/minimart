@@ -1,61 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Directions</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
 
-    <link rel="apple-touch-icon" href="icon-192x192.png">
+    <link rel="apple-touch-icon" href="icon-192x192.png" />
     <meta name="theme-color" content="#f69435" />
 
     <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
-                .then(function (registration) {
-                    console.log('Registration successful, scope is:', registration.scope);
-                })
-                .catch(function (error) {
-                    console.log('Service worker registration failed, error:', error);
-                });
-        }
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("sw.js")
+          .then(function (registration) {
+            console.log(
+              "Registration successful, scope is:",
+              registration.scope
+            );
+          })
+          .catch(function (error) {
+            console.log("Service worker registration failed, error:", error);
+          });
+      }
     </script>
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Ansel's Minimart</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="products.html">Browse Products</a></li>
-                <li><a href="shoppinglist.html">Create Shopping List</a></li>
-                <li><a href="directions.html">How To Get Here</a></li>
-            </ul>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Ansel's Minimart</a>
         </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="products.html">Browse Products</a></li>
+          <li><a href="shoppinglist.html">Create Shopping List</a></li>
+          <li><a href="directions.html">How To Get Here</a></li>
+        </ul>
+      </div>
     </nav>
 
     <div class="container">
-        <h1>How to get here.</h1>
+      <h1>How to get here.</h1>
+      <h2>Let me show you how to get here!</h2>
+    </div>
 
-        <iframe class="mw-100 mh-100" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBARliSpJCdMMNH1SeHYJehDUoPO6EW3aM
-            &q=T21,Singapore+Polytechnic" allowfullscreen>
-        </iframe>
+    <div class="container">
+      <p>Our location is at 500 Dover Road, Singapore 139651.</p>
     </div>
 
     <div id="map"></div>
-
-
-
-</body>
-
+  </body>
 </html>
