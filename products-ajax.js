@@ -6,12 +6,19 @@ $(document).ready(function () {
 
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
+<<<<<<< HEAD
       console.log("AJAX call has been made");
+=======
+>>>>>>> 6b2be836e2a29533b759763ac3e8b73424fe64ca
       //document.getElementById("demo").innerHTML = this.responseText;
 
       var data = JSON.parse(this.responseText);
 
+<<<<<<< HEAD
       //console.log(data[1]);
+=======
+      console.log(data[1]);
+>>>>>>> 6b2be836e2a29533b759763ac3e8b73424fe64ca
 
       var all_card_titles = document.getElementsByClassName("card-title");
 
